@@ -1,5 +1,5 @@
 
-let userInput = 2;
+const userInput = 2;
 let result;
 
 result = 18 + userInput;
