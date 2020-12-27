@@ -19,8 +19,8 @@ task3Element.addEventListener('click', noParamFunction);
 
 function stringFunction(st1,st2,st3) {
     const allStrings = st1 + st2 + st3;
-    alert(allStrings);
+    return allStrings;
 }
 
-stringFunction('Hello, ','this are ','three strings');
-stringFunction(st1,st2,st3);
+const combinedString = stringFunction('Hello, ','this are ','three strings');
+alert(combinedString);
