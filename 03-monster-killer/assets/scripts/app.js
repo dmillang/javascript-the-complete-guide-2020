@@ -193,9 +193,19 @@ function healPlayerHandler() {
 }
 
 function printLogHandler() {
-  for (let i = 0; i < 3; i++) {
-    console.log('----------');
-  }
+  // for (let i = 0; i < 3; i++) {
+  //   console.log('----------');
+  // }
+
+  let j = 0;
+  // while (j < 3) {
+  //   console.log('--------------');
+  //   j++;
+  // }
+  do {
+    console.log('--------------');
+    j++;
+  } while (j < 3);
 
   // for (let i = 0; i < battleLog.length; i++) {
   //   console.log(battleLog[i]);
