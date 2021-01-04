@@ -21,14 +21,15 @@ let lastLoggedEntry;
 
 function setValue() {
   let enteredValue = prompt('Maximum life for you and the monster:', '100');
-  let enteredValueNumber = parseInt(enteredValue);
+  const enteredValueNumber = parseInt(enteredValue);
   chosenMaxLife = enteredValueNumber;
-  if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-    chosenMaxLife = 100;
+  if (isNaN(enteredValueNumber) || enteredValueNumber <= 0) {
+    throw {message:"Invalid user input, not a number!"};
   }
   adjustHealthBars(chosenMaxLife);
   currentMonsterHealth = chosenMaxLife;
   currentPlayerHealth = chosenMaxLife;
+  return enteredValueNumber
 }
 
 function writeToLog(ev, val, monsterHealth, playerHealth) {
