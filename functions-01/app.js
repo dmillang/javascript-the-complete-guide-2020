@@ -4,11 +4,17 @@ const ROCK = 'ROCK';
 const PAPER = 'PAPER';
 const SCISSORS = 'SCISSORS';
 const DEFAULT_USER_CHOICE = ROCK;
+const RESULT_DRAW = 'DRAW';
+const RESULT_PLAYER_WINS = 'PLAYER_WINS';
+const RESULT_COMPUTER_WINS = 'COMPUTER_WINS';
 
 let gameIsRunning = false;
 
 const getPlayerChoice = function () {
-  const selection = prompt(`${ROCK}, ${PAPER} or ${SCISSORS}?`, '').toUpperCase();
+  const selection = prompt(
+    `${ROCK}, ${PAPER} or ${SCISSORS}?`,
+    ''
+  ).toUpperCase();
 
   if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
     alert(`Invalid choice! We chose ${DEFAULT_USER_CHOICE} for you!`);
@@ -18,12 +24,43 @@ const getPlayerChoice = function () {
   return selection;
 };
 
+const getComputerChoice = function () {
+  const randomNum = Math.random();
+
+  if (randomNum < 0.34) {
+    return ROCK;
+  } else if (randomNum < 0.67) {
+    return PAPER;
+  } else {
+    return SCISSORS;
+  }
+};
+
+const getWinner = function (pChoice, cChoice) {
+  if (pChoice === cChoice) {
+    gameIsRunning = false;
+    return RESULT_DRAW;
+  } else if (
+    (pChoice === ROCK && cChoice === SCISSORS) ||
+    (pChoice === PAPER && cChoice === ROCK) ||
+    (pChoice === SCISSORS && cChoice === PAPER)
+  ) {
+    gameIsRunning = false;
+    return RESULT_PLAYER_WINS;
+  } else {
+    gameIsRunning = false;
+    return RESULT_COMPUTER_WINS;
+  }
+};
+
 startGameBtn.addEventListener('click', function startGame() {
   if (gameIsRunning) {
-    return // avoid starting new game is we click the button by mistake
+    return; // avoid starting new game is we click the button by mistake
   }
   gameIsRunning = true;
   console.log('Game is starting...');
   const playerChoice = getPlayerChoice();
-  console.log(playerChoice);
+  const computerChoice = getComputerChoice();
+  const winner = getWinner(playerChoice, computerChoice);
+  console.log(winner);
 });
