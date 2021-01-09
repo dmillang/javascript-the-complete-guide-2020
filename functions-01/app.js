@@ -92,7 +92,7 @@ startGameBtn.addEventListener('click', () => {
 
 // not related to the game
 
-const sumUp = (...numbers) => {
+const sumUp = (resultHandler, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;  
   };
@@ -100,8 +100,12 @@ const sumUp = (...numbers) => {
   for (const num of numbers) {
     result += validateNumber  (num);
   };
-  return result;
+  resultHandler(result);
 };
 
-console.log(sumUp(2,'dsfas', 59, -20, 6));
-console.log(sumUp(70,120,34,62,29));
+const showResult = (result) => {
+  alert('The result of adding all nambers is: ' + result);
+};
+
+sumUp(showResult,'dsfas', 59, -20, 6);
+sumUp(showResult,70,120,34,62,29);
