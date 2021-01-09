@@ -92,13 +92,16 @@ startGameBtn.addEventListener('click', () => {
 
 // not related to the game
 
-let sumUp = (...numbers) => {
+const sumUp = (...numbers) => {
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;  
+  };
   let result = 0;
   for (const num of numbers) {
-    result += num;
+    result += validateNumber  (num);
   };
   return result;
 };
 
-console.log(sumUp(2,43, 59, -20, 6));
+console.log(sumUp(2,'dsfas', 59, -20, 6));
 console.log(sumUp(70,120,34,62,29));
