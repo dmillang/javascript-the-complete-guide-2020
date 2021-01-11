@@ -92,20 +92,57 @@ startGameBtn.addEventListener('click', () => {
 
 // not related to the game
 
-const sumUp = (resultHandler, ...numbers) => {
+const combine = (resultHandler, operation, ...numbers) => {
   const validateNumber = (number) => {
-    return isNaN(number) ? 0 : number;  
+    return isNaN(number) ? 0 : number;
   };
   let result = 0;
-  for (const num of numbers) {
-    result += validateNumber  (num);
-  };
+  if (operation === 'SUM') {
+    for (const num of numbers) {
+      result += validateNumber(num);
+    }
+  } else {
+    for (const num of numbers) {
+      result -= validateNumber(num);
+    }
+  }
   resultHandler(result);
 };
 
-const showResult = (result) => {
-  alert('The result of adding all nambers is: ' + result);
+// const substractUp = function (resultHandler, ...numbers) {
+//   let sum = 0;
+//   for (const num of numbers) {
+//     sum -= num;
+//   }
+//   resultHandler(sum);
+// };
+
+const showResult = (messageText, result) => {
+  alert(messageText + ' ' + result);
 };
 
-sumUp(showResult,'dsfas', 59, -20, 6);
-sumUp(showResult,70,120,34,62,29);
+combine(
+  showResult.bind(this, 'The result after adding all numbers is:'),
+  'SUM',
+  'dsfas',
+  59,
+  -20,
+  6
+);
+combine(
+  showResult.bind(this, 'The result after adding all numbers is:'),
+  'SUM',
+  70,
+  120,
+  34,
+  62,
+  29
+);
+combine(
+  showResult.bind(this, 'The result after subtracting all numbers is:'),
+  'SUBTRACT',
+  3,
+  5,
+  6,
+  8
+);
