@@ -8,12 +8,12 @@ liID.style.color = 'white';
 
 const head = document.querySelector('head');
 const headTitle = head.querySelector('title');
-headTitle.innerText = 'Assignment - Super Solved!';
+headTitle.innerText = 'Assignment - Solved!';
 
-const title = document.querySelector('head title');
+const title = document.querySelector('title');
 title.innerText = 'Assignment - Super Solved!';
 
 //////////////////////
 
-const h1 = document.querySelector('h1');
-h1.innerText = 'Assignment - Super Solved!';
+const h1 = document.getElementsByTagName('h1');
+h1[0].innerText = 'Assignment - Solved!';
