@@ -36,3 +36,11 @@ console.log(hobbies);
 console.log(shiftedValue);
 hobbies[1] = 'Working';
 // hobbies[5] = 'Sleeping'; // rarely used
+
+console.log(hobbies);
+hobbies.splice(0, 0, 'Dancing');
+console.log(hobbies);
+hobbies.splice(0,1);
+console.log(hobbies);
+hobbies.splice(-1,1); // start from the back
+console.log(hobbies);
