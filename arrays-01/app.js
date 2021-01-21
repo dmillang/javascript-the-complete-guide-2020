@@ -81,3 +81,18 @@
 
 // console.log(age32);
 
+const prices = [2.99, 1.99, 5.99, 9.99, 10.50];
+const tax = 0.24;
+const taxAdjustedPrices = [];
+
+// for (const price of prices) {
+//   taxAdjustedPrices.push(price * (1 + tax));
+// }
+
+prices.forEach((price, idx, prices) => {
+  const priceObj = {index: idx, taxAdjPrice: price * (1 + tax)};
+  taxAdjustedPrices.push(priceObj.taxAdjPrice);
+});
+
+console.log(prices);
+console.log(taxAdjustedPrices);
