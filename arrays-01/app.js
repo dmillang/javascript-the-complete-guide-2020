@@ -45,10 +45,17 @@
 // hobbies.splice(-1,1); // start from the back
 // console.log(hobbies);
 
-const testResults = [-2, 3.8, 50, -10, 36, 2.4];
-const partOftestResults = testResults.slice(-3,-1);
+// const testResults = [-2, 3.8, 50, -10, 36, 2.4];
+// const partOftestResults = testResults.slice(-3,-1);
 
-const storedResults = testResults.slice();
-storedResults.push(70);
+// const storedResults = testResults.slice();
+// storedResults.push(70);
 
-console.log(testResults, partOftestResults, storedResults);
+// console.log(testResults, partOftestResults, storedResults);
+
+
+const array = [3,4,5];
+const newArray = array.concat([6,7,8]);
+array.unshift(1,2);
+console.log(array);
+console.log(newArray);
