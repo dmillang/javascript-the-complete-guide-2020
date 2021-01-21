@@ -54,27 +54,30 @@
 // console.log(testResults, partOftestResults, storedResults);
 
 
-const array = [8,7,6,3,4,5];
-const newArray = array.concat([6,7,8]);
-array.unshift(1,2);
-console.log(array);
-console.log(newArray);
-console.log(newArray.indexOf(8)); // expect 5
-console.log(newArray.lastIndexOf(8)); // expect 5
+// const array = [8,7,6,3,4,5];
+// const newArray = array.concat([6,7,8]);
+// array.unshift(1,2);
+// console.log(array);
+// console.log(newArray);
+// console.log(newArray.indexOf(8)); // expect 0
+// console.log(newArray.lastIndexOf(8)); // expect 8
+// console.log(newArray.includes(0)); // expect false
+// console.log(newArray.includes(7)); // expect true
 
-const personData = [{name: 'John', age: 32}, {name: 'Mark', age: 24}];
-console.log(personData.indexOf({name: 'John'})); // doesn't work
+// const personData = [{name: 'John', age: 32}, {name: 'Mark', age: 24}];
+// console.log(personData.indexOf({name: 'John'})); // doesn't work
 
-const mark = personData.find((person) => {
-  return person.name === 'Mark';
-});
+// const mark = personData.find((person) => {
+//   return person.name === 'Mark';
+// });
 
-mark.name = 'Anna';
+// mark.name = 'Anna';
 
-console.log(personData);
+// console.log(personData);
 
-const age32 = personData.findIndex((person) => {
-  return person.age === 32;
-});
+// const age32 = personData.findIndex((person) => {
+//   return person.age === 32;
+// });
 
-console.log(age32);
+// console.log(age32);
+
