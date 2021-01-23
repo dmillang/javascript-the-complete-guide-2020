@@ -53,7 +53,6 @@
 
 // console.log(testResults, partOftestResults, storedResults);
 
-
 // const array = [8,7,6,3,4,5];
 // const newArray = array.concat([6,7,8]);
 // array.unshift(1,2);
@@ -97,11 +96,11 @@
 // console.log(prices);
 // console.log(taxAdjustedPrices);
 
-const prices = [2.99, 1.99, 5.99, 9.99, 10.50];
+const prices = [2.99, 1.99, 5.99, 9.99, 10.5];
 const tax = 0.24;
 
 const taxAdjustedPrices = prices.map((price, idx, prices) => {
-  const priceObj = {index: idx, taxAdjPrice: price * (1 + tax)};
+  const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
   return priceObj.taxAdjPrice;
 });
 
@@ -120,3 +119,19 @@ const sortedPrices = prices.sort((a, b) => {
 
 console.log(sortedPrices);
 console.log(sortedPrices.reverse());
+
+const filteredPrices = prices
+  .sort((a, b) => {
+    if (a > b) {
+      return 1;
+    } else if (a === b) {
+      return 0;
+    } else {
+      return -1;
+    }
+  })
+  .filter((price) => {
+    return price > 5;
+  });
+
+console.log(filteredPrices);
