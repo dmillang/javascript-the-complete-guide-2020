@@ -146,3 +146,12 @@ console.log(sum);
 const names = ['John', 'Doe', 'Draper']
 const fullName = names.reduce((prevValue, curValue) => prevValue + ' ' + curValue);
 console.log(fullName);
+
+const data = 'new york;24.99;2020';
+
+const splittedData = data.split(';');
+console.log(splittedData);
+
+const toJoin = ['25','03','2021'];
+const joinedData = toJoin.join(' / ');
+console.log(joinedData);  
