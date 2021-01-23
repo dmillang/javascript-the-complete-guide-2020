@@ -130,7 +130,7 @@ const filteredPrices = prices
       return -1;
     }
   })
-  .filter(price => price > 5);
+  .filter((price) => price > 5);
 
 console.log(filteredPrices);
 
@@ -142,9 +142,10 @@ prices.forEach((price) => {
 
 console.log(sum);
 
-
-const names = ['John', 'Doe', 'Draper']
-const fullName = names.reduce((prevValue, curValue) => prevValue + ' ' + curValue);
+const names = ['John', 'Doe', 'Draper'];
+const fullName = names.reduce(
+  (prevValue, curValue) => prevValue + ' ' + curValue
+);
 console.log(fullName);
 
 const data = 'new york;24.99;2020';
@@ -152,6 +153,38 @@ const data = 'new york;24.99;2020';
 const splittedData = data.split(';');
 console.log(splittedData);
 
-const toJoin = ['25','03','2021'];
+const toJoin = ['25', '03', '2021'];
 const joinedData = toJoin.join(' / ');
-console.log(joinedData);  
+console.log(joinedData);
+
+const copiedToJoin = [...toJoin];
+toJoin.unshift('10:30');
+console.log(copiedToJoin);
+console.log(toJoin);
+
+console.log(Math.min(...prices));
+
+const persons = [
+  { name: 'Max', age: 30 },
+  { name: 'Steve', age: 45 },
+  { name: 'Laura', age: 26 },
+  { name: 'Susan', age: 34 },
+];
+
+const copiedPersons = persons.map(person => person.age);
+
+const copyPersons = [...persons];
+copyPersons[3].age = 18;
+console.log(persons);
+
+const ages1 = [];
+persons.forEach(person => ages1.push(person.age));
+
+const ages2 = [];
+for (const i in persons) {
+  ages2.push(persons[i].age);
+}
+
+console.log(ages1);
+console.log(ages2);
+console.log(copiedPersons);
