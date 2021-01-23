@@ -130,8 +130,19 @@ const filteredPrices = prices
       return -1;
     }
   })
-  .filter((price) => {
-    return price > 5;
-  });
+  .filter(price => price > 5);
 
 console.log(filteredPrices);
+
+let sum = 0;
+
+prices.forEach((price) => {
+  sum += price;
+});
+
+console.log(sum);
+
+
+const names = ['John', 'Doe', 'Draper']
+const fullName = names.reduce((prevValue, curValue) => prevValue + ' ' + curValue);
+console.log(fullName);
