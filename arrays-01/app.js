@@ -96,95 +96,105 @@
 // console.log(prices);
 // console.log(taxAdjustedPrices);
 
-const prices = [2.99, 1.99, 5.99, 9.99, 10.5];
-const tax = 0.24;
+// const prices = [2.99, 1.99, 5.99, 9.99, 10.5];
+// const tax = 0.24;
 
-const taxAdjustedPrices = prices.map((price, idx, prices) => {
-  const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
-  return priceObj.taxAdjPrice;
-});
+// const taxAdjustedPrices = prices.map((price, idx, prices) => {
+//   const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+//   return priceObj.taxAdjPrice;
+// });
 
-console.log(prices);
-console.log(taxAdjustedPrices);
+// console.log(prices);
+// console.log(taxAdjustedPrices);
 
-const sortedPrices = prices.sort((a, b) => {
-  if (a > b) {
-    return 1;
-  } else if (a === b) {
-    return 0;
-  } else {
-    return -1;
-  }
-});
+// const sortedPrices = prices.sort((a, b) => {
+//   if (a > b) {
+//     return 1;
+//   } else if (a === b) {
+//     return 0;
+//   } else {
+//     return -1;
+//   }
+// });
 
-console.log(sortedPrices);
-console.log(sortedPrices.reverse());
+// console.log(sortedPrices);
+// console.log(sortedPrices.reverse());
 
-const filteredPrices = prices
-  .sort((a, b) => {
-    if (a > b) {
-      return 1;
-    } else if (a === b) {
-      return 0;
-    } else {
-      return -1;
-    }
-  })
-  .filter((price) => price > 5);
+// const filteredPrices = prices
+//   .sort((a, b) => {
+//     if (a > b) {
+//       return 1;
+//     } else if (a === b) {
+//       return 0;
+//     } else {
+//       return -1;
+//     }
+//   })
+//   .filter((price) => price > 5);
 
-console.log(filteredPrices);
+// console.log(filteredPrices);
 
-let sum = 0;
+// let sum = 0;
 
-prices.forEach((price) => {
-  sum += price;
-});
+// prices.forEach((price) => {
+//   sum += price;
+// });
 
-console.log(sum);
+// console.log(sum);
 
-const names = ['John', 'Doe', 'Draper'];
-const fullName = names.reduce(
-  (prevValue, curValue) => prevValue + ' ' + curValue
-);
-console.log(fullName);
+// const names = ['John', 'Doe', 'Draper'];
+// const fullName = names.reduce(
+//   (prevValue, curValue) => prevValue + ' ' + curValue
+// );
+// console.log(fullName);
 
-const data = 'new york;24.99;2020';
+// const data = 'new york;24.99;2020';
 
-const splittedData = data.split(';');
-console.log(splittedData);
+// const splittedData = data.split(';');
+// console.log(splittedData);
 
-const toJoin = ['25', '03', '2021'];
-const joinedData = toJoin.join(' / ');
-console.log(joinedData);
+// const toJoin = ['25', '03', '2021'];
+// const joinedData = toJoin.join(' / ');
+// console.log(joinedData);
 
-const copiedToJoin = [...toJoin];
-toJoin.unshift('10:30');
-console.log(copiedToJoin);
-console.log(toJoin);
+// const copiedToJoin = [...toJoin];
+// toJoin.unshift('10:30');
+// console.log(copiedToJoin);
+// console.log(toJoin);
 
-console.log(Math.min(...prices));
+// console.log(Math.min(...prices));
 
-const persons = [
-  { name: 'Max', age: 30 },
-  { name: 'Steve', age: 45 },
-  { name: 'Laura', age: 26 },
-  { name: 'Susan', age: 34 },
-];
+// const persons = [
+//   { name: 'Max', age: 30 },
+//   { name: 'Steve', age: 45 },
+//   { name: 'Laura', age: 26 },
+//   { name: 'Susan', age: 34 },
+// ];
 
-const copiedPersons = persons.map(person => person.age);
+// const copiedPersons = persons.map(person => person.age);
 
-const copyPersons = [...persons];
-copyPersons[3].age = 18;
-console.log(persons);
+// const copyPersons = [...persons];
+// copyPersons[3].age = 18;
+// console.log(persons);
 
-const ages1 = [];
-persons.forEach(person => ages1.push(person.age));
+// const ages1 = [];
+// persons.forEach(person => ages1.push(person.age));
 
-const ages2 = [];
-for (const i in persons) {
-  ages2.push(persons[i].age);
-}
+// const ages2 = [];
+// for (const i in persons) {
+//   ages2.push(persons[i].age);
+// }
 
-console.log(ages1);
-console.log(ages2);
-console.log(copiedPersons);
+// console.log(ages1);
+// console.log(ages2);
+// console.log(copiedPersons);
+
+const nameFragments = ['John', 'McDown', 30, 'Portugal', 'single'];
+// const firstName = nameFragments[0];
+// const lastName = nameFragments[1];
+
+const [firstName, lastName, ...otherInfo] = nameFragments;
+
+console.log(firstName);
+console.log(lastName);
+console.log(otherInfo);
