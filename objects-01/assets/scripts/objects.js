@@ -3,6 +3,9 @@ const movieList = document.getElementById("movie-list");
 movieList.style["background-color"] = "red";
 movieList.style.display = "block";
 
+const userChosenKeyName = 'level';
+const userChosenValueName = '300';
+
 const person = {
   "first name": "Max",
   age: 30,
@@ -10,7 +13,8 @@ const person = {
   greet: function() {
     console.log("Hi there!");
   },
-  2.5: "hello"
+  [userChosenKeyName]: userChosenValueName, 
+  2.5: "hello",
 }
 
 // person.greet();
@@ -28,8 +32,8 @@ person.isAdmin = true;
 
 console.log(person);
 
-
-console.log(person["first name"]);
+const keyName = "first name";
+console.log(person[keyName]);
 
 console.log(person[1.5+1]);
 
