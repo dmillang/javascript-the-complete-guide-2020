@@ -9,7 +9,8 @@ const person = {
   hobbies: ["sports","cooking"],
   greet: function() {
     console.log("Hi there!");
-  }
+  },
+  2.5: "hello"
 }
 
 // person.greet();
@@ -29,3 +30,8 @@ console.log(person);
 
 
 console.log(person["first name"]);
+
+console.log(person[1.5+1]);
+
+let numbers = {2: "bye", 1: "hi"}; // will get sorted
+console.log(numbers);
