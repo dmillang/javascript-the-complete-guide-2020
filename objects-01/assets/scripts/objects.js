@@ -1,41 +1,51 @@
-const movieList = document.getElementById("movie-list");
+const addMovieButton = document.getElementById('add-movie-btn');
+const searchButton = document.getElementById('search-btn');
 
-movieList.style["background-color"] = "red";
-movieList.style.display = "block";
+const movies = [];
 
-const userChosenKeyName = 'level';
-const userChosenValueName = '300';
+const renderMovies = () => {
+  const movieList = document.getElementById('movie-list');
 
-const person = {
-  "first name": "Max",
-  age: 30,
-  hobbies: ["sports","cooking"],
-  greet: function() {
-    console.log("Hi there!");
-  },
-  [userChosenKeyName]: userChosenValueName, 
-  2.5: "hello",
-}
+  if (movies.length === 0) {
+    movieList.classList.remove('visible');
+    return;
+  } else {
+    movieList.classList.add('visible');
+  }
+  movieList.innerHTML = '';
 
-// person.greet();
+  movies.forEach((movie) => {
+    const movieEl = document.createElement("li");
+    movieEl.textContent = movie.info.title;
+    movieList.append(movieEl);
+  });
 
-// console.log(person.isAdmin); // returns undefined
+};
 
-person.age = 31;
+const addMovieHandler = () => {
+  const title = document.getElementById('title').value;
+  const extraName = document.getElementById('extra-name').value;
+  const extraValue = document.getElementById('extra-value').value;
+  if (
+    title.trim() === '' ||
+    extraName.trim() === '' ||
+    extraValue.trim() === ''
+  ) {
+    return;
+  }
 
-person.age = null; // reset
-person.age = undefined; // dirty delete - do not use
-delete person.age; // delete properly
+  const newMovie = {
+    info: {
+      title, // assign same for key and value ('title' string for key but title constant declared in this function as value)
+      [extraName]: extraValue
+    },
+    id: Math.random()
+  };
 
+  movies.push(newMovie);
 
-person.isAdmin = true;
+  renderMovies();
+};
 
-console.log(person);
+addMovieButton.addEventListener('click', addMovieHandler);
 
-const keyName = "first name";
-console.log(person[keyName]);
-
-console.log(person[1.5+1]);
-
-let numbers = {2: "bye", 1: "hi"}; // will get sorted
-console.log(numbers);
