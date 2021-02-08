@@ -48,7 +48,7 @@ const addMovieHandler = () => {
       title, // assign same for key and value ('title' string for key but title constant declared in this function as value)
       [extraName]: extraValue,
     },
-    id: Math.random(),
+    id: Math.random().toString()
   };
 
   movies.push(newMovie);
