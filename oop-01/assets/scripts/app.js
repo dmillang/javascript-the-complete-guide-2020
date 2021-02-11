@@ -1,28 +1,31 @@
-
 class Product {
   title = 'DEFAULT';
   imageUrl;
-  description;
   price;
+  description;
+
+  constructor(title, image, price, descriptions) {
+    this.title = title;
+    this.imageUrl = image;
+    this.price = price;
+    this.description = descriptions;
+  }
 }
 
 const productList = {
   products: [
-    new Product()
-    {
-      title: 'Soft pillow',
-      imageUrl:
-        'https://i.etsystatic.com/19864675/r/il/533dfb/1940699137/il_570xN.1940699137_bnsg.jpg',
-      price: 19.99,
-      description: 'A soft taupe mellow pillow.',
-    },
-    {
-      title: 'Zebra carpet',
-      imageUrl:
-        'https://www.amara.com/static/uploads/images-2/products/x/huge/1060719/zebra-carpet-856212.jpg',
-      price: 89.99,
-      description: 'Zebra printed floor carpet',
-    }
+    new Product(
+      'Soft pillow',
+      'https://i.etsystatic.com/19864675/r/il/533dfb/1940699137/il_570xN.1940699137_bnsg.jpg',
+      19.99,
+      'A soft taupe mellow pillow'
+    ),
+    new Product(
+      'Zebra carpet',
+      'https://www.amara.com/static/uploads/images-2/products/x/huge/1060719/zebra-carpet-856212.jpg',
+      89.99,
+      'Zebra printed floor carpet'
+    )
   ],
   render() {
     const renderHook = document.getElementById('app');
@@ -45,7 +48,7 @@ const productList = {
       prodList.append(prodEl);
     }
     renderHook.append(prodList);
-  }
+  },
 };
 
 productList.render();
