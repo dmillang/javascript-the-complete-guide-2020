@@ -1,6 +1,14 @@
 
+class Product {
+  title = 'DEFAULT';
+  imageUrl;
+  description;
+  price;
+}
+
 const productList = {
   products: [
+    new Product()
     {
       title: 'Soft pillow',
       imageUrl:
