@@ -23,7 +23,7 @@ const productList = {
     new Product(
       'Zebra carpet',
       'https://www.amara.com/static/uploads/images-2/products/x/huge/1060719/zebra-carpet-856212.jpg',
-      89.99,
+      69.99,
       'Zebra printed floor carpet'
     )
   ],
