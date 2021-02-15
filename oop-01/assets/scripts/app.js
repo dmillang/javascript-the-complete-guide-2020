@@ -1,23 +1,39 @@
 class Product {
   // title = 'DEFAULT';
   // imageUrl;
-  // price;
   // description;
+  // price;
 
-  constructor(title, image, price, descriptions) {
+  constructor(title, image, desc, price) {
     this.title = title;
     this.imageUrl = image;
+    this.description = desc;
     this.price = price;
-    this.description = descriptions;
   }
 }
 
 class ShoppingCart {
   items = [];
 
+  set cartItems(value) {
+    this.items = value;
+    this.totalOutput.innerHTML = `<h2>Total: \$${this.totalAmount.toFixed(
+      2
+    )}</h2>`;
+  }
+
+  get totalAmount() {
+    const sum = this.items.reduce(
+      (prevValue, curItem) => prevValue + curItem.price,
+      0
+    );
+    return sum;
+  }
+
   addProduct(product) {
-    this.items.push(product);
-    this.totalOutput.innerHTML = `<h2>Total: \$${1}</h2>`;
+    const updatedItems = [...this.items];
+    updatedItems.push(product);
+    this.cartItems = updatedItems;
   }
 
   render() {
@@ -25,7 +41,7 @@ class ShoppingCart {
     cartEl.innerHTML = `
       <h2>Total: \$${0}</h2>
       <button>Order Now!</button>
-    `
+    `;
     cartEl.className = 'cart';
     this.totalOutput = cartEl.querySelector('h2');
     return cartEl;
@@ -45,16 +61,16 @@ class ProductItem {
     const prodEl = document.createElement('li');
     prodEl.className = 'product-item';
     prodEl.innerHTML = `
-      <div>
-        <img src="${this.product.imageUrl}" alt="${this.product.title}">
-        <div class="product-item__content">
-          <h2>${this.product.title}</h2>
-          <h3>\$ ${this.product.price}</h3>
-          <p>${this.product.description}</p>
-          <button>Add to cart</button>
+        <div>
+          <img src="${this.product.imageUrl}" alt="${this.product.title}" >
+          <div class="product-item__content">
+            <h2>${this.product.title}</h2>
+            <h3>\$${this.product.price}</h3>
+            <p>${this.product.description}</p>
+            <button>Add to Cart</button>
+          </div>
         </div>
-      </div>
-    `;
+      `;
     const addCartButton = prodEl.querySelector('button');
     addCartButton.addEventListener('click', this.addToCart.bind(this));
     return prodEl;
@@ -64,16 +80,16 @@ class ProductItem {
 class ProductList {
   products = [
     new Product(
-      'Soft pillow',
-      'https://i.etsystatic.com/19864675/r/il/533dfb/1940699137/il_570xN.1940699137_bnsg.jpg',
-      19.99,
-      'A soft taupe mellow pillow'
+      'A Pillow',
+      'https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg',
+      'A soft pillow!',
+      19.99
     ),
     new Product(
-      'Zebra carpet',
-      'https://www.amara.com/static/uploads/images-2/products/x/huge/1060719/zebra-carpet-856212.jpg',
-      69.99,
-      'Zebra printed floor carpet'
+      'A Carpet',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Ardabil_Carpet.jpg/397px-Ardabil_Carpet.jpg',
+      'A carpet which you might like - or not.',
+      89.99
     ),
   ];
 
@@ -81,9 +97,9 @@ class ProductList {
 
   render() {
     const prodList = document.createElement('ul');
-    prodList.classList.add('product-list');
-    for (const product of this.products) {
-      const productItem = new ProductItem(product);
+    prodList.className = 'product-list';
+    for (const prod of this.products) {
+      const productItem = new ProductItem(prod);
       const prodEl = productItem.render();
       prodList.append(prodEl);
     }
@@ -107,7 +123,7 @@ class Shop {
 
 class App {
   static cart;
-  
+
   static init() {
     const shop = new Shop();
     shop.render();
