@@ -18,6 +18,16 @@ function Person() {
   };
 }
 
+Person.prototype = {
+  printAge() {
+    console.log(this.age);
+  }
+}
+
 const person = new Person();
 
+console.dir(Person);
+
 person.greet();
+person.printAge();
+console.log(person.__proto__ === Person.prototype);
