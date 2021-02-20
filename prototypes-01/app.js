@@ -14,6 +14,10 @@ class Person extends agedPerson {
     this.age = 30;
   }
 
+  // greet = () => {
+  //   console.log(`Hi my name is ${this.name} and I'm ${this.age} years old.`);
+  // }
+
   greet() {
     console.log(`Hi my name is ${this.name} and I'm ${this.age} years old.`);
   }
@@ -22,10 +26,11 @@ class Person extends agedPerson {
 // function Person() {
 //   this.name = 'Max';
 //   this.age = 30;
-//   this.greet = function() {
-//     console.log(`Hi my name is ${this.name} and I'm ${this.age} years old.`);
-//   };
 // }
+
+// Person.prototype.greet = function() {
+//   console.log(`Hi my name is ${this.name} and I'm ${this.age} years old.`);
+// };
 
 // Person.describe = function() {
 //   console.log('Creating persons...');
@@ -52,4 +57,10 @@ class Person extends agedPerson {
 
 
 const p = new Person;
+const p2 = new Person;
 console.log(p);
+p.greet();
+
+const button = document.getElementById('btn');
+
+button.addEventListener('click',p.greet.bind(p));
