@@ -1,10 +1,8 @@
-
 class agedPerson {
   printAge() {
     console.log(this.age);
   }
 }
-
 
 class Person extends agedPerson {
   name = 'Max';
@@ -55,12 +53,53 @@ class Person extends agedPerson {
 // console.dir(Object.prototype);
 // console.dir(Object.prototype.__proto__); // returns null
 
+// const p = new Person;
+// const p2 = new Person;
+// console.log(p);
+// p.greet();
 
-const p = new Person;
-const p2 = new Person;
-console.log(p);
-p.greet();
+// const button = document.getElementById('btn');
 
-const button = document.getElementById('btn');
+// button.addEventListener('click',p.greet.bind(p));
 
-button.addEventListener('click',p.greet.bind(p));
+const course = {
+  name: 'JavaScript - The Complete Course',
+  rating: 5,
+};
+
+// console.log(Object.getPrototypeOf(course));
+
+Object.setPrototypeOf(course, {
+  ...Object.getPrototypeOf(course),
+  printRating: function () {
+    console.log(`Rating: ${this.rating}`);
+  },
+});
+
+// console.log(course.__proto__);
+
+course.printRating();
+
+const student = Object.create({
+  printProgress: function () {
+    console.log(this.progress);
+  },
+},{
+  name: {
+    configurable: true,
+    enumerable: true,
+    value: 'Max',
+    writable: true
+  }
+});
+
+// student.name = 'Max';
+
+Object.defineProperty(student, 'age', {
+  configurable: true,
+  enumerable: true,
+  value: 30,
+  writable: true
+});
+
+console.log(student);
