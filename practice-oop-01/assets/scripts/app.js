@@ -12,9 +12,34 @@ class DOMHelper {
   }
 }
 
-class Tooltip {}
+class Tooltip {
+
+  constructor(closeNotifierFunction) {
+    this.closeNotifier = closeNotifierFunction;
+  }
+
+  closeToolTip= () => {
+    this.detach();
+    this.closeNotifier();
+  }
+
+  detach() {
+    this.element.parentElement.removeChild(this.element);
+  }
+
+  attach() {
+    const tooltipElement = document.createElement('div');
+    tooltipElement.className = 'card';
+    tooltipElement.textContent = 'DUMMY!';
+    tooltipElement.addEventListener('click', this.closeToolTip);
+    this.element = tooltipElement;
+    document.body.append(tooltipElement);
+  }
+}
 
 class ProjectItem {
+  hasActiveToolTip = false;
+
   constructor(id, updateProjectListsFunction, type) {
     this.id = id;
     this.updateProjectListsHandler = updateProjectListsFunction;
@@ -22,7 +47,22 @@ class ProjectItem {
     this.connectSwitchButton(type);
   }
 
-  connectMoreInfoButton() {}
+  showMoreInfoHandler() {
+    if (this.hasActiveToolTip) {
+      return
+    }
+    const tooltip = new Tooltip(() => {
+      this.hasActiveToolTip = false;
+    });
+    tooltip.attach();
+    this.hasActiveToolTip = true;
+  }
+
+  connectMoreInfoButton() {
+    const projectItemElement = document.getElementById(this.id);
+    const moreInfoButton = projectItemElement.querySelector('button:first-of-type');
+    moreInfoButton.addEventListener('click', this.showMoreInfoHandler)
+  }
 
   connectSwitchButton(type) {
     const projectItemElement = document.getElementById(this.id);
