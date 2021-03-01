@@ -37,8 +37,8 @@ class Component {
 }
 
 class Tooltip extends Component {
-  constructor(closeNotifierFunction, text) {
-    super();
+  constructor(closeNotifierFunction, text, hostElementId) {
+    super(hostElementId);
     this.closeNotifier = closeNotifierFunction;
     this.text = text;
     this.create();
@@ -53,6 +53,19 @@ class Tooltip extends Component {
     const tooltipElement = document.createElement('div');
     tooltipElement.className = 'card';
     tooltipElement.textContent = this.text;
+
+    const hostElPosLeft = this.hostElement.offsetLeft;
+    const hostElPosTop = this.hostElement.offsetTop;
+    const hostElHeight = this.hostElement.clientHeight;
+    const parentElementScrolling = this.hostElement.parentElement.scrollTop;
+
+    const x = hostElPosLeft + 20;
+    const y = (hostElPosTop + hostElHeight - 10) - parentElementScrolling;
+
+    tooltipElement.style.position = 'absolute';
+    tooltipElement.style.left = x + 'px';
+    tooltipElement.style.top = y + 'px';
+
     tooltipElement.addEventListener('click', this.closeToolTip);
     this.element = tooltipElement;
   }
@@ -74,9 +87,13 @@ class ProjectItem {
     }
     const projectElement = document.getElementById(this.id);
     const toolTipText = projectElement.dataset.extraInfo;
-    const tooltip = new Tooltip(() => {
-      this.hasActiveToolTip = false;
-    }, toolTipText);
+    const tooltip = new Tooltip(
+      () => {
+        this.hasActiveToolTip = false;
+      },
+      toolTipText,
+      this.id
+    );
     tooltip.attach();
     this.hasActiveToolTip = true;
   }
@@ -86,7 +103,10 @@ class ProjectItem {
     const moreInfoButton = projectItemElement.querySelector(
       'button:first-of-type'
     );
-    moreInfoButton.addEventListener('click', this.showMoreInfoHandler.bind(this));
+    moreInfoButton.addEventListener(
+      'click',
+      this.showMoreInfoHandler.bind(this)
+    );
   }
 
   connectSwitchButton(type) {
