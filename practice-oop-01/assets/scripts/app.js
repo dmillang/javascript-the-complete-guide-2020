@@ -9,7 +9,7 @@ class DOMHelper {
     const element = document.getElementById(elementId);
     const destinationElement = document.querySelector(newDestinationSelector);
     destinationElement.append(element);
-    element.scrollIntoView({behavior: 'smooth'});
+    element.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
@@ -64,7 +64,7 @@ class Tooltip extends Component {
     const parentElementScrolling = this.hostElement.parentElement.scrollTop;
 
     const x = hostElPosLeft + 20;
-    const y = (hostElPosTop + hostElHeight - 10) - parentElementScrolling;
+    const y = hostElPosTop + hostElHeight - 10 - parentElementScrolling;
 
     tooltipElement.style.position = 'absolute';
     tooltipElement.style.left = x + 'px';
@@ -173,7 +173,11 @@ class App {
       activeProjectsList.addProject.bind(activeProjectsList)
     );
 
-    document.getElementById('start-analytics-button').addEventListener('click', this.startAnalytics);
+    const timerId = setTimeout(this.startAnalytics, 3000);
+
+    document.getElementById('stop-analytics-button').addEventListener('click', () => {
+      clearTimeout(timerId);
+    });
   }
 
   static startAnalytics() {
