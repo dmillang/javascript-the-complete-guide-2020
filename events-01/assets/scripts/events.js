@@ -35,3 +35,5 @@ buttons.forEach(btn => {
 window.addEventListener('scroll', event => {
   console.log(event);
 })
+
+let curElementNumber = 0;
