@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('button');
+const button = document.querySelector('button');
 
 // button.onclick = () => {
 //   alert('choto mate');
@@ -42,5 +42,19 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', event => {
   event.preventDefault(   );
+  console.log(event);
+});
+
+const div = document.querySelector('button').parentElement;
+
+div.addEventListener('click', event => {
+  console.log('clicked div');
+  console.log(event);
+});
+
+button.addEventListener('click', event => {
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+  console.log('clicked button'); 
   console.log(event);
 });
