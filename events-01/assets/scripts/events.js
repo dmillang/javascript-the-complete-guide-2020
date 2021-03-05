@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll('button');
 //   alert('choto mate');
 // }
 
-const buttonClickHandler = event => {
+const buttonClickHandler = (event) => {
   console.log(event);
   // event.target.disabled = true;
   event.target.style.opacity = '20%';
@@ -28,12 +28,19 @@ const buttonClickHandler = event => {
 //   button.removeEventListener('click', buttonClickHandler);
 // }, 2000);
 
-buttons.forEach(btn => {
-  btn.addEventListener('mouseenter', buttonClickHandler);
-})
+// buttons.forEach(btn => {
+//   btn.addEventListener('mouseenter', buttonClickHandler);
+// })
 
-window.addEventListener('scroll', event => {
+// window.addEventListener('scroll', event => {
+//   console.log(event);
+// })
+
+// let curElementNumber = 0;
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+  event.preventDefault(   );
   console.log(event);
-})
-
-let curElementNumber = 0;
+});
