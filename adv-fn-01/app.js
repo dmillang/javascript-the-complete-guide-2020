@@ -30,8 +30,11 @@ function printHobbies(h) {
 
 printHobbies(hobbies);
 
+let multiplier = 1.1;
+
 function createTaxCalculator(tax) {
   function calculateTax(amount) {
+    console.log(multiplier);
     return amount * tax;
   }
 
@@ -40,6 +43,8 @@ function createTaxCalculator(tax) {
 
 const calculateVatAmount = createTaxCalculator(0.19);
 const calculateIncomeAmount = createTaxCalculator(0.25);
+
+// multiplier = 1.2;
 
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
