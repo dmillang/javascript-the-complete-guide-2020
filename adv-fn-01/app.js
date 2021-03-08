@@ -48,3 +48,18 @@ const calculateIncomeAmount = createTaxCalculator(0.25);
 
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
+
+
+
+let userName = 'Max';
+
+function greetUser() {
+  // let name = 'Anna';
+  console.log('Hi ' + name);
+}
+
+let name = 'Maxim';
+
+userName = 'Manuel';
+
+greetUser();
