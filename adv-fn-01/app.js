@@ -19,9 +19,9 @@ function addMoreNumbers(num1, num2) {
   return sum;
 }
 
-console.log(addMoreNumbers(3,4));
+console.log(addMoreNumbers(3, 4));
 
-const hobbies = ['sports','cooking'];
+const hobbies = ['sports', 'cooking'];
 
 function printHobbies(h) {
   hobbies.push('reading');
@@ -49,8 +49,6 @@ const calculateIncomeAmount = createTaxCalculator(0.25);
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
 
-
-
 let userName = 'Max';
 
 function greetUser() {
@@ -63,3 +61,26 @@ let name = 'Maxim';
 userName = 'Manuel';
 
 greetUser();
+
+// function powerOf(x, n) {
+//   let result = 1;
+
+//   for (let i = 0; i < n; i++) {
+//     result *= x;
+//   }
+
+//   return result;
+// }
+
+function powerOf(x, n) {
+
+  // if (n === 1) {
+  //   return x;
+  // }
+
+  // return x * powerOf(x, n - 1);
+
+  return n === 1 ? x : x * powerOf(x, n - 1);
+}
+
+console.log(powerOf(2, 3)); // 2 * 2 * 2
