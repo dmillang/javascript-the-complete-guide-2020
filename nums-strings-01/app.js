@@ -89,12 +89,35 @@
 // console.log(productOutput);
 
 
-const userInput = 'test@test.com';
+// const userInput = 'test@test.com';
 
-console.log(userInput.includes('@'));
+// console.log(userInput.includes('@'));
 
-// const regex = new RegExp('')
+// // const regex = new RegExp('')
 
-const regex = /^\S+@\S+\.\S+$/
+// const regex = /^\S+@\S+\.\S+$/
 
-regex.test(userInput);
+// regex.test(userInput);
+
+
+let regex = /hello/
+
+console.log(regex.test('hello')); //true
+console.log(regex.test('hey there hello you')); //true
+console.log(regex.test('Hello')); //false
+
+regex = /(h|H)ello/
+
+console.log(regex.test('hello')); //true
+console.log(regex.test('Hello')); //true
+console.log(regex.test('hey there, hello')); //true
+
+regex = /.ello/
+
+console.log(regex.test('hello')); //true
+console.log(regex.test('    Joello')); //true
+console.log(regex.test('ello')); //false
+
+console.log(regex.exec('hello')); //index: 0
+console.log(regex.exec('hi, hello')); //index: 4
+console.log('hi, hello'.match(regex)); //index: 4
