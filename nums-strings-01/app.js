@@ -34,22 +34,25 @@
 // console.log(parseInt(10n) - 6);
 // console.log(10n - BigInt(6));
 
-console.log(Number.POSITIVE_INFINITY);
-console.log(Number.NEGATIVE_INFINITY);
-console.log(Number.isFinite(7));
-console.log(Number.isFinite(Infinity));
-console.log(Number.isNaN(Infinity));
-console.log(Number.isNaN(NaN));
+// console.log(Number.POSITIVE_INFINITY);
+// console.log(Number.NEGATIVE_INFINITY);
+// console.log(Number.isFinite(7));
+// console.log(Number.isFinite(Infinity));
+// console.log(Number.isNaN(Infinity));
+// console.log(Number.isNaN(NaN));
 
-console.log(Math.PI);
-console.log(Math.abs(5));
-console.log(Math.floor(Math.random() * 6) + 1);
+// console.log(Math.PI);
+// console.log(Math.abs(5));
+// console.log(Math.floor(Math.random() * 6) + 1);
 
-// function to create random number between a min and a max
+// // function to create random number between a min and a max
 
-function randomIntBetween(min, max) { // min: 5, max: 10
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+// function randomIntBetween(min, max) { // min: 5, max: 10
+//   return Math.floor(Math.random() * (max - min + 1) + min);
+// }
 
-console.log(randomIntBetween(1,6));
-console.log(randomIntBetween(1,10));
+// console.log(randomIntBetween(1,6));
+// console.log(randomIntBetween(1,10));
+
+console.log('mr. hello'.startsWith('mr.'));
+console.log('mr. hello'.startsWith('miss.'));
