@@ -44,3 +44,12 @@ console.log(Number.isNaN(NaN));
 console.log(Math.PI);
 console.log(Math.abs(5));
 console.log(Math.floor(Math.random() * 6) + 1);
+
+// function to create random number between a min and a max
+
+function randomIntBetween(min, max) { // min: 5, max: 10
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(randomIntBetween(1,6));
+console.log(randomIntBetween(1,10));
