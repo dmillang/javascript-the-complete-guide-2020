@@ -70,21 +70,31 @@
 
 // console.log(`My name is ${getName()}`);
 
-function productDescription(strings, productName, productPrice) {
-  console.log(strings);
-  console.log(productName);
-  console.log(productPrice);
-  let priceCategory = 'pretty cheap';
-  if (productPrice > 20) {
-    priceCategory = 'fairly priced';
-  }
-  // return `${strings[0]}${prodName}${strings[1]}${priceCategory}${strings[2]}`;
-  return {name: prodName, price: prodPrice};
-}
+// function productDescription(strings, productName, productPrice) {
+//   console.log(strings);
+//   console.log(productName);
+//   console.log(productPrice);
+//   let priceCategory = 'pretty cheap';
+//   if (productPrice > 20) {
+//     priceCategory = 'fairly priced';
+//   }
+//   // return `${strings[0]}${prodName}${strings[1]}${priceCategory}${strings[2]}`;
+//   return {name: prodName, price: prodPrice};
+// }
 
-const prodName = 'JavaScript Course';
-const prodPrice = 19.99;
+// const prodName = 'JavaScript Course';
+// const prodPrice = 19.99;
 
-const productOutput = productDescription`This product (${prodName}) is ${prodPrice}`
-console.log(productOutput);
+// const productOutput = productDescription`This product (${prodName}) is ${prodPrice}`
+// console.log(productOutput);
 
+
+const userInput = 'test@test.com';
+
+console.log(userInput.includes('@'));
+
+// const regex = new RegExp('')
+
+const regex = /^\S+@\S+\.\S+$/
+
+regex.test(userInput);
