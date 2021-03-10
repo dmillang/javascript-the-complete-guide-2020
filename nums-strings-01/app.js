@@ -1,4 +1,3 @@
-
 // console.log(Number.MAX_SAFE_INTEGER); // max integer number we can work with
 // console.log(Number.MIN_SAFE_INTEGER); // min integer number we can work with
 // console.log(Number.MAX_VALUE); // biggest value
@@ -13,7 +12,6 @@
 
 // console.log(0.33333 + 0.33333 + 0.33333); // 0.99999
 // console.log(1/3 + 1/3 + 1/3); // 1
-
 
 // console.log(0.2.toFixed(20)); // 0.20000000000000001110
 
@@ -54,5 +52,39 @@
 // console.log(randomIntBetween(1,6));
 // console.log(randomIntBetween(1,10));
 
-console.log('mr. hello'.startsWith('mr.'));
-console.log('mr. hello'.startsWith('miss.'));
+// console.log('mr. hello'.startsWith('mr.'));
+// console.log('mr. hello'.startsWith('miss.'));
+
+// const name = 'Max';
+// const names = ['Max', 'Meghan', 'Harry', 'Charles', 'Isabel', 'Diana'];
+
+// function randomIntBetween(min, max) { // min: 5, max: 10
+//   return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+
+// const getName = () => {
+//   let val = randomIntBetween(0, names.length - 1);
+//   console.log(val);
+//   return names[val];
+// };
+
+// console.log(`My name is ${getName()}`);
+
+function productDescription(strings, productName, productPrice) {
+  console.log(strings);
+  console.log(productName);
+  console.log(productPrice);
+  let priceCategory = 'pretty cheap';
+  if (productPrice > 20) {
+    priceCategory = 'fairly priced';
+  }
+  // return `${strings[0]}${prodName}${strings[1]}${priceCategory}${strings[2]}`;
+  return {name: prodName, price: prodPrice};
+}
+
+const prodName = 'JavaScript Course';
+const prodPrice = 19.99;
+
+const productOutput = productDescription`This product (${prodName}) is ${prodPrice}`
+console.log(productOutput);
+
