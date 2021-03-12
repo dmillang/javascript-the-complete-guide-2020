@@ -36,6 +36,7 @@ async function trackUserHandler() {
     console.log(error);
   }
   console.log(timerData, posData);
+    // getPosition()
     // .then((posData) => {
     //   positionData = posData;
     //   return setTimer(2000);
@@ -47,11 +48,15 @@ async function trackUserHandler() {
     // .then(data => {
     //   console.log(data, positionData);
     // });
-  // setTimer(1000).then(() => {
-  //   console.log('Timer done!');
-  // });
-  // console.log('Getting position...');
+  setTimer(1000).then(() => {
+    console.log('Timer done!');
+  });
+  console.log('Getting position...');
 }
+
+// (async function() {
+//   await setTimer(1000);
+// })();
 
 button.addEventListener('click', trackUserHandler);
 
