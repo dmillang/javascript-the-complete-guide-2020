@@ -58,7 +58,9 @@ form.addEventListener('submit', event => {
 
 postList.addEventListener('click', event => {
   if (event.target.tagName === 'BUTTON') {
-    const postId = event.target.closest('li').id;
+    const parentLi = event.target.closest('li');
+    const postId = parentLi.id;
     sendHttpRequest('DELETE', `https://jsonplaceholder.typicode.com/posts/${postId}`);
+    parentLi.remove();
   }
 });
